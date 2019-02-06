@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="/css/new.css" rel="stylesheet">
+</head>
+<body>
+<form autocomplete="off" method="post" action="/commit">
+    <div class="container">
+        <p>Please fill Git account details and commit message.</p>
+        <input type="text" placeholder="Enter Username" name="name">
+        <input type="password" placeholder="Enter Password" name="psw">
+        <input type="text" placeholder="Commit Message" name="message">
+        <div class="wrapper">
+            <button type="submit" class="button">Submit</button>
+        </div>
+        <span th:each="property: ${properties}"><
+          <td class="hello-title" th:text="${property.repositoryName}"/><br>
+             <div>
+                <tr th:each="add: ${property.added}">
+                Add:<td th:text="${add}"/><br>
+                </tr>
+             </div>
+             <div>
+                <tr th:each="uncommittedChange: ${property.uncommittedChanges}">
+                UncomitteChanges: <td th:text="${uncommittedChange}"/><br>
+                </tr>
+             </div>
+             <div>
+                <tr th:each="untrack: ${property.untracked}"><br>
+                Untracked:<td th:text="${untrack}"/><br>
+                </tr>
+             </div>
+        </span>
+    </div>
+</form>
+</body>
+</html>
