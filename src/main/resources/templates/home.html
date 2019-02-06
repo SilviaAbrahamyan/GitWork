@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link href="/css/new.css" rel="stylesheet">
+    <link href="../static/css/home.css" th:href="@{/css/home.css}" rel="stylesheet" />
 </head>
 <body>
 <form autocomplete="off" method="post" action="/commit">
@@ -15,8 +15,8 @@
         <div class="wrapper">
             <button type="submit" class="button">Submit</button>
         </div>
-        <span th:each="property: ${properties}"><
-          <td class="hello-title" th:text="${property.repositoryName}"/><br>
+        <span th:each="property: ${properties}">
+          <p><td class="hello-title" th:text="${property.repositoryName}"/><br></p>
              <div>
                 <tr th:each="add: ${property.added}">
                 Add:<td th:text="${add}"/><br>

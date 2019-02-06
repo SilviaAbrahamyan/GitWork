@@ -28,7 +28,7 @@ public class GitAppController {
     public String homePage(Model model) throws GitAPIException, IOException {
         List<GitRepository> gitRepositoryList = gitService.loadGitRepository();
         model.addAttribute("properties", gitRepositoryList);
-        return "new";
+        return "home";
     }
 
     @PostMapping("/commit")
